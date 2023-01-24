@@ -24,8 +24,13 @@
         showName.innerText = 'Pokemon name : ' + name;
         pokemonBaseExperience.innerText = 'esperienza di base : ' + base_experience;
         pokemonImage.src = img;
+        errorText.innerText = "";
         }catch{
             errorText.innerText = 'spiacenti, il pokemon digitato non esiste';
+            showAbilities.innerText = "";
+            showName.innerText = "";
+            pokemonBaseExperience.innerText = "";
+            pokemonImage.src = "";
         }     
         
     }  
@@ -34,11 +39,5 @@
     
 
     button.onclick = async() => {
-        try{
-            findPokemon();
-            errorText.innerText = "";
-        }catch{
-            let result = await findPokemon();
-            errorText.innerText = result;
-        }
+       findPokemon();
     }
